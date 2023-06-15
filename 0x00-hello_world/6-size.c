@@ -2,7 +2,6 @@
 
 /**
  * main - Entry Function
- * 
  * Return: Always 0 (Success)
  */
 int main(void)
