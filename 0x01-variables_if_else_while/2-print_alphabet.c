@@ -15,6 +15,6 @@ int main(void)
 		putchar(letter);
 		letter++;
 	}
-	putchat('\n');
+	putchar('\n');
 	return (0);
 }
