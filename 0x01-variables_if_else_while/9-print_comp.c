@@ -7,12 +7,15 @@
  */
 int main(void)
 {
-	char hexas[16] = "0123456789ABCDEF";
-	int a;
+	char a;
 
-	a = 0;
-	while (a < 16)
-		putchar(hexas[a++]);
+	a = '0';
+	while (a <= '9')
+	{
+		putchar(a++);
+		putchar(',');
+		putchar(' ');
+	}
 	putchar('\n');
 	return (0);
 }
