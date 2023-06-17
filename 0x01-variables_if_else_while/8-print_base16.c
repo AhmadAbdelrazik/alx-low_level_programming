@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	char hexas[16] = "0123456789ABCDEF";
+	char hexas[16] = "0123456789abcdef";
 	int a;
 
 	a = 0;
