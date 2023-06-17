@@ -12,7 +12,7 @@ int main(void)
 
 	a = 0;
 	hexas[16] = "0123456789ABCDEF";
-	while(a < 16)
+	while (a < 16)
 		putchar(hexas[a++]);
 	putchar('\n');
 	return (0);

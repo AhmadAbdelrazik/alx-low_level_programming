@@ -11,7 +11,7 @@ int main(void)
 	int a;
 
 	a = 0;
-	hexas[16] = "0123456789ABCDEF";
+	hexas = "0123456789ABCDEF";
 	while (a < 16)
 		putchar(hexas[a++]);
 	putchar('\n');
