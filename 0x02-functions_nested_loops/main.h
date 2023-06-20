@@ -1,5 +1,5 @@
 #include <unistd.h>
-
+#include <stdio.h>
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -24,7 +24,7 @@ void print_alphabet(void)
 	letter = 'a';
 	while (letter <= 'z')
 	{
-		_putchar(letter);
+		_putchar(letter++);
 	}
 	_putchar('\n');
 }
