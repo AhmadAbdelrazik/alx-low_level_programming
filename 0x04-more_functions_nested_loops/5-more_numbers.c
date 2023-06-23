@@ -16,7 +16,7 @@ void more_numbers(void)
 	{
 		_putchar('0' + a);
 	}
-	for(b = 0; b < 5; b++)
+	for (b = 0; b < 5; b++)
 	{
 		_putchar('1');
 		_putchar('0' + b);
