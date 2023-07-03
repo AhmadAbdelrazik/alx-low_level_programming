@@ -4,23 +4,23 @@
  * @s: the main string.
  * @accept: The accepted string.
  *
- * Return: Returns the number of bytes in the initial segment of s which 
+ * Return: Returns the number of bytes in the initial segment of s which
  * consist only of bytes from accept
  */
-int _strspn(char *s, char *accept)
+unsigned int _strspn(char *s, char *accept)
 {
 	int i;
 	int j;
-	int number = 0;
+	unsigned int number = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		bool found = false;
+		int found = 0;
 	for (j = 0; accept[j] != '\0'; j++)
 	{
 	if (s[i] == accept[j])
 	{
-		found = true;
+		found = 1;
 		number++;
 		break;
 	}
