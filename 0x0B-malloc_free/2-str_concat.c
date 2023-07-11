@@ -12,9 +12,13 @@ char *str_concat(char *s1, char *s2)
 	unsigned int count1 = 0, count2 = 0;
 	char *ptr;
 	
-	if (s1 == NULL && s2 == NULL)
+	if (s1 == NULL)
 	{
-		return (NULL);
+		s1 = '\0';
+	}
+	if (s2 == NULL)
+	{
+		s2 = '\0';
 	}
 	while (s1[count1] != '\0')
 	{
