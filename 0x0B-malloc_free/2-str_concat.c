@@ -1,5 +1,17 @@
 #include "main.h"
 /**
+ * _strlen - calculate string length.
+ * @str: the string.
+ *
+ * Return: the string length.
+ */
+int _strlen(char *str)
+{
+	int i = 0;
+	for (;str[i] != '\0';i++);
+	return (i);
+}
+/**
  * str_concat - concatenate two strings.
  * @s1: the first string.
  * @s2: the second string.
@@ -9,37 +21,25 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int count1 = 0, count2 = 0;
+	int count1, count2, i;
 	char *ptr;
 
 	if (s1 == NULL)
 	{
-		*s1 = '\0';
+		s1 = '\0';
 	}
 	if (s2 == NULL)
 	{
-		*s2 = '\0';
+		s2 = '\0';
 	}
-	while (s1[count1] != '\0')
+	count1 = _strlen(s1);
+	count2 = _strlen(s2);
+	for (i = 0; i <= count1 + count2; i++)
 	{
-		count1++;
+		if (i < count1)
+			ptr[i] = s1[count1];
+		else
+			ptr[i] = s2[i - count1];
 	}
-	while (s2[count2] != '\0')
-	{
-		count2++;
-	}
-	ptr = (char *)malloc(count1 + count2 + 1);
-	if (ptr == NULL)
-	{
-		return (NULL);
-	}
-	do {
-		ptr[count1 + count2] = s2[count2];
-	} while (count2--);
-	while (count1--)
-	{
-		ptr[count1] = s1[count1];
-	}
-	ptr[count1 + count2] = '\0';
-	return (ptr);
+	ptr[i] = '\0';
 }
