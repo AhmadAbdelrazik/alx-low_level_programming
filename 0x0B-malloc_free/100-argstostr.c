@@ -4,7 +4,7 @@
  * @ac: arguments count.
  * @av: arguments.
  *
- * return: pointer to the arguments, or NULL if fails.
+ * Return: pointer to the arguments, or NULL if fails.
  */
 char *argstostr(int ac, char **av)
 {
@@ -17,7 +17,8 @@ char *argstostr(int ac, char **av)
 	}
 	for (i = 0; i < ac; i++)
 	{
-	for (j = 0; av[i][j] != '\0'; j++);
+	for (j = 0; av[i][j] != '\0'; j++)
+	;
 	length += j;
 	}
 	str = malloc(length + 1);
