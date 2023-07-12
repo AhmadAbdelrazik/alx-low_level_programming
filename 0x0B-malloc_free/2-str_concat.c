@@ -34,6 +34,11 @@ char *str_concat(char *s1, char *s2)
 	}
 	count1 = _strlen(s1);
 	count2 = _strlen(s2);
+	ptr = malloc(count1 + count2 + 1);
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
 	for (i = 0; i <= count1 + count2; i++)
 	{
 		if (i < count1)
@@ -42,4 +47,5 @@ char *str_concat(char *s1, char *s2)
 			ptr[i] = s2[i - count1];
 	}
 	ptr[i] = '\0';
+	return (ptr);
 }
