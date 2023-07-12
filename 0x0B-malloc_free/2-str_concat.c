@@ -8,7 +8,11 @@
 int _strlen(char *str)
 {
 	int i = 0;
-	for (;str[i] != '\0';i++);
+
+	while (str[i] != '\0')
+	{
+		i++;
+	}
 	return (i);
 }
 /**
@@ -26,11 +30,11 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == NULL)
 	{
-		s1 = '\0';
+		*s1 = '\0';
 	}
 	if (s2 == NULL)
 	{
-		s2 = '\0';
+		*s2 = '\0';
 	}
 	count1 = _strlen(s1);
 	count2 = _strlen(s2);
@@ -41,11 +45,14 @@ char *str_concat(char *s1, char *s2)
 	}
 	for (i = 0; i <= count1 + count2; i++)
 	{
-		if (i < count1)
-			ptr[i] = s1[count1];
-		else
-			ptr[i] = s2[i - count1];
+	if (i < count1)
+	{
+		ptr[i] = s1[i];
 	}
-	ptr[i] = '\0';
+	else
+	{
+		ptr[i] = s2[i - count1];
+	}
+	}
 	return (ptr);
 }
