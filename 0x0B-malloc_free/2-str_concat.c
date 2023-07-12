@@ -40,6 +40,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		ptr[count1] = s1[count1];
 	}
-	ptr[count1 + count2] = '\n';
+	ptr[count1 + count2] = '\0';
 	return (ptr);
 }
