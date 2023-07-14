@@ -22,6 +22,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 	{
 		s2 = "";
+		n = 0;
 	}
 	/* Calculate the length of the strings */
 	for (size1 = 0; s1[size1] != '\0'; size1++)
@@ -29,7 +30,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (size2 = 0; s2[size2] != '\0'; size2++)
 	;
 	/* Dealing with n and size2 */
-	if (n >= size2)
+	if (n >= size2 && size2)
 		n = size2 - 1;
 	/* Allocating memory*/
 	ptr = malloc(size1 + n + 1);
