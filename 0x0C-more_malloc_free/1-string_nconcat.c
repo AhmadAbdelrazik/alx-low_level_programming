@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * string_nconcat - concatenate two strings, concatenate the first string
  * with the first n characters from the second string.
@@ -11,7 +12,7 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int size1, size2, i;
+	unsigned int size1 = 0, size2 = 0, i;
 	char *ptr;
 
 	/* Dealing with strings if NULL is passed */
@@ -29,7 +30,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (s2[size2])
 		size2++;
 	/* Dealing with n and size2 */
-	n = (n > size2 ? size2 : n);
+	if (n > size2)
+		n = size2;
 	/* Allocating memory*/
 	ptr = malloc(size1 + n + 1);
 	if (ptr == NULL)
