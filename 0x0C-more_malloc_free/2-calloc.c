@@ -26,10 +26,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	for (i = 0; i < nmemb; i++)
 	{
 		ptr[i] = malloc(size);
-		if (ptr[i] == NULL)
-		{
-			return (NULL);
-		}
+	if (ptr[i] == NULL)
+	{
+		return (NULL);
+	}
+		ptr[i] = 0;
 	}
 	/* Return the pointer */
 	return (ptr);
