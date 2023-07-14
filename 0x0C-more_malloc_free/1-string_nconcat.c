@@ -22,16 +22,18 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 	{
 		s2 = "";
-		n = 0;
 	}
 	/* Calculate the length of the strings */
-	for (size1 = 0; s1[size1] != '\0'; size1++)
-	;
-	for (size2 = 0; s2[size2] != '\0'; size2++)
-	;
+	while (s1[size1])
+		size1++;
+	while (s2[size2])
+		size2++;
+	if (size1)
+		size1--;
+	if (size2)
+		size2--;
 	/* Dealing with n and size2 */
-	if (n >= size2 && size2)
-		n = size2 - 1;
+	n = (n > size2 ? size2 : n);
 	/* Allocating memory*/
 	ptr = malloc(size1 + n + 1);
 	if (ptr == NULL)
@@ -39,7 +41,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	}
 	/* Copying the strings*/
-	for (i = 0; i < size1 + n; i++)
+	for (i = 0; i <= size1 + n; i++)
 	{
 	if (i < size1)
 		ptr[i] = s1[i];
