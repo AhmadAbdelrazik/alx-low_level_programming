@@ -28,10 +28,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		size1++;
 	while (s2[size2])
 		size2++;
-	if (size1)
-		size1--;
-	if (size2)
-		size2--;
 	/* Dealing with n and size2 */
 	n = (n > size2 ? size2 : n);
 	/* Allocating memory*/
@@ -48,7 +44,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	else
 		ptr[i] = s2[i - size1];
 	}
-	ptr[i] = '\0';
 	/* Pointer return*/
 	return (ptr);
 }
