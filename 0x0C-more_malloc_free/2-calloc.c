@@ -10,26 +10,19 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void **ptr;
+	char *ptr;
 	unsigned int i;
 
 	/* Check for 0 values in nmemb and size*/
 	if (nmemb == 0 ||  size == 0)
 		return (NULL);
 	/* allocating memory for the array of pointers*/
-	ptr = malloc(nmemb);
+	ptr = malloc(nmemb * size);
 	if (ptr == NULL)
-	{
 		return (NULL);
-	}
 	/*allocating memory for the pointers of the array*/
-	for (i = 0; i < nmemb; i++)
+	for (i = 0; i < nmemb * size; i++)
 	{
-		ptr[i] = malloc(size);
-	if (ptr[i] == NULL)
-	{
-		return (NULL);
-	}
 		ptr[i] = 0;
 	}
 	/* Return the pointer */
