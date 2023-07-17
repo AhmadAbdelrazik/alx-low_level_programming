@@ -10,9 +10,9 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t dog;
+	dog_t *dog;
 	char *cp_name, *cp_owner;
-	int ln_name, ln_owner, i;
+	int ln_name = 0, ln_owner = 0, i;
 
 	if (name == NULL || owner == NULL)
 		return (NULL);
@@ -38,14 +38,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(cp_name);
 		return (NULL);
 	}
-	for(i = 0; i <= ln_name;i++)
+	for(i = 0; i < ln_name;i++)
 		cp_name[i] = name[i];
-	for(i = 0; i <= ln_owner;i++)
+	cp_name[i] = '\0';
+	for(i = 0; i < ln_owner;i++)
 		cp_owner[i] = owner[i];
+	cp_owner[i] = '\0';
 	dog->name = cp_name;
 	dog->age = age;
 	dog->owner = cp_owner;
-	free(cp_name);
-	free(cp_owner);
 	return (dog);
 }
