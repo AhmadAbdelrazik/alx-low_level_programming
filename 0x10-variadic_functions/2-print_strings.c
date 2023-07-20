@@ -3,7 +3,7 @@
 /**
  * print_strings - prints the following strings.
  * @separator: the separator between strings.
- *
+ * @n: nu
  * Return: void.
  */
 void print_strings(const char *separator, const unsigned int n, ...)
@@ -12,6 +12,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 	char *holder;
 
+	if (n == 0)
+	{
+		printf("\n");
+		return;
+	}
 	va_start(args, n);
 	if (separator == NULL)
 		separator = "";
