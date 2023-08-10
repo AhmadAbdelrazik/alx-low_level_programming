@@ -3,6 +3,7 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd;
+	int write_stat;
 	unsigned int it = 0;
 	size_t wcount = 0;
 
@@ -16,8 +17,10 @@ int append_text_to_file(const char *filename, char *text_content)
 		it++;
 		wcount++;
 	}
-	if (wcount)
-		write(fd, text_content, wcount);
+	write_stat = write(fd, text_content, wcount);
+	if (write_stat == -1)
+		return (-1);
 	close(fd);
+	return (1);
 
 }
