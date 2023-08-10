@@ -18,18 +18,12 @@ int create_file(const char *filename, char *text_content)
 	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 		return (-1);
+
 	while (text_content[len])
 		len++;
 
 	if (len)
-	{
 		write_stat = write(fd, text_content, len);
-	}
+
 	return (write_stat == len ? 1 : -1);
 }
-
-
-/**
- * if file exists --> Truncate it (make it empty)
- * if text content is null --> create empty file
- */
