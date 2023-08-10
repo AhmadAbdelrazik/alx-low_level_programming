@@ -8,25 +8,28 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int file, write_status, words = 0;
+	int fd;
+	int write_stat = 0;
+	int len = 0;
 
-	if (filename == NULL)
+	if (filename == 0)
 		return (-1);
 
-	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
-	if (file == -1)
+	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNCT, S_IRUSR | S_IWUSR);
+	if (fd == -1)
 		return (-1);
+	while (text_content[len])
+		len++;
 
-	if (text_content)
+	if (len)
 	{
-		while (text_content[words] != '\0')
-			words++;
-
-		write_status = write(file, text_content, words);
-		if (write_status)
-			return (-1);
+		write_stat = write(fd, text_content, len);
 	}
-
-	close(file);
-	return (1);
+	return (write_stat == len ? 1 : -1);
 }
+
+
+/**
+ * if file exists --> Truncate it (make it empty)
+ * if text content is null --> create empty file
+ */
