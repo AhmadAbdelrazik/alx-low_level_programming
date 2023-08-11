@@ -12,7 +12,7 @@
  *
  * Return: 0 on success
 */
-int __exit(int error, char *str, int fd)
+int __exit(int error, char *s, int fd)
 {
 	switch (error)
 	{
