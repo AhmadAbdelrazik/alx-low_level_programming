@@ -6,7 +6,7 @@
  *
  * Return: number of characters.
  */
-int count(char *s);
+int count(char *s)
 {
 	int n = 0;
 
