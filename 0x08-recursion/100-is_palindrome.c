@@ -9,13 +9,14 @@
 int count(char *s);
 {
 	int n = 0;
+
 	if (*s != '\0')
 		n += count(s + 1) + 1;
-		
+
 	return (n);
 }
 /**
- * is_palindrome - check if string is palindrome.
+ * check - check if string is palindrome.
  * @s: the string.
  * @start: the start index.
  * @end: the end index.
@@ -44,5 +45,6 @@ int check(char *s, int start, int end, int mod)
 int is_palindrome(char *s)
 {
 	int length = count(s);
+
 	return (check(s, 0, length - 1, length % 2));
 }
