@@ -1,12 +1,11 @@
 #include "lists.h"
 
 /**
- * print_dilstint - print all elements in a double linked list
+ * dilstint_len - count the nodes in linked list
  * @h: double linked list head.
  * 
  * Return: the number of nodes.
  */
-
 size_t dlistint_len(const dlistint_t *h)
 {
 	unsigned int counter = 0;
@@ -23,6 +22,6 @@ size_t dlistint_len(const dlistint_t *h)
 		list = list->next;
 		counter++;
 	}
-	
+
 	return (counter);
 }
