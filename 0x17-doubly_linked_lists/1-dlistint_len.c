@@ -6,7 +6,8 @@
  * 
  * Return: the number of nodes.
  */
-size_t print_dlistint(const dlistint_t *h)
+
+size_t dlistint_len(const dlistint_t *h)
 {
 	unsigned int counter = 0;
 	dlistint_t *list;
@@ -19,7 +20,6 @@ size_t print_dlistint(const dlistint_t *h)
 
 	while (list != NULL)
 	{
-		printf("%d\n", list->n);
 		list = list->next;
 		counter++;
 	}
