@@ -1,6 +1,6 @@
 #include "lists.h"
 
-/** 
+/**
  * add_dnodeint - add a node at the beginning of the double linked list
  * @head: a pointer to the double linked list head.
  * @n: the value.
