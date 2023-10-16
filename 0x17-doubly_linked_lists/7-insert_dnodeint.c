@@ -1,70 +1,53 @@
 #include "lists.h"
 
-static void populate_node(dlistint_t *node, dlistint_t *next
-			, dlistint_t *prev, int n);
 /**
- * insert_dnodeint_at_index - insert a node at a specific index.
- * @h: pointer to double linked list head.
- * @idx: the index of the new node.
- * @n: the value.
- *
+ * insert_dnodeint_at_index - inserts a node node at a given position
+ * in a dlistint_t list.
+ * @h: pointer to the list.
+ * @idx: position to add the node.
+ * @n: data for the new node.
  * Return: the address of the new node, or NULL if it failed
- */
+ **/
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new, *list;
-	unsigned int counter = 0;
+	dlistint_t *aux_node = *h, *new_node;
+	unsigned int index, cont = 0;
 
-	new = malloc(sizeof(dlistint_t));
-
-	if (h == NULL || new == NULL)
+	/* create node */
+	new_node = malloc(sizeof(dlistint_t));
+	if (new_node == NULL)
 		return (NULL);
+	new_node->n = n;
 
-	if (*h == NULL)
+	/* border case for insert at the beginning */
+	if (idx == 0)
 	{
-		*h = new;
-		populate_node(new, NULL, NULL, n);
-		return (new);
+		new_node->prev = NULL;
+		new_node->next = *h;
+		if (*h)
+			(*h)->prev = new_node;
+		*h = new_node;
+		return (*h);
 	}
 
-	list = *h;
+	/* search of position to insert */
+	index = idx - 1;
+	while (aux_node && cont != index)
+	{
+		cont++;
+		aux_node = aux_node->next;
+	}
 
-	while (list->next != NULL)
+	/* general case */
+	if (cont == index && aux_node)
 	{
-		if (counter == idx)
-		{
-			populate_node(new, list, list->prev, n);
-			populate_node(list, list->n, new, list->n);
-			return (new);
-		}
-		counter++;
-		list = list->next;
+		new_node->prev = aux_node;
+		new_node->next = aux_node->next;
+		if (aux_node->next)
+			aux_node->next->prev = new_node;
+		aux_node->next = new_node;
+		return (new_node);
 	}
-	counter++;
-	if (counter == idx)
-	{
-		populate_node(new, NULL, list, n);
-		list->next = new;
-	}
+	free(new_node);
 	return (NULL);
 }
-
-/**
- * populate_node - populates the node.
- * @node: the node.
- * @next: the next node.
- * @prev: the previous node.
- * @n: the node's value.
- *
- * Return: Void.
- */
-
-static void populate_node(dlistint_t *node, dlistint_t *next
-			, dlistint_t *prev, int n)
-{
-	node->next = next;
-	node->prev = prev;
-	node->n = n;
-}
-
-
