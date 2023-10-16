@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * dilstint_len - count the nodes in linked list
+ * dlistint_len - count the nodes in linked list
  * @h: double linked list head.
  *
  * Return: the number of nodes.
