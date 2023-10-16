@@ -37,7 +37,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			populate_node(list, list->n, new, list->n);
 			return (new);
 		}
-		counter++:
+		counter++;
 		list = list->next;
 	}
 	counter++;

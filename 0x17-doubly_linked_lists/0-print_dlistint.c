@@ -3,7 +3,7 @@
 /**
  * print_dilstint - print all elements in a double linked list
  * @h: double linked list head.
- * 
+ *
  * Return: the number of nodes.
  */
 size_t print_dlistint(const dlistint_t *h)
@@ -23,6 +23,6 @@ size_t print_dlistint(const dlistint_t *h)
 		list = list->next;
 		counter++;
 	}
-	
+
 	return (counter);
 }

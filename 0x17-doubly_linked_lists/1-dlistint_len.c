@@ -3,7 +3,7 @@
 /**
  * dilstint_len - count the nodes in linked list
  * @h: double linked list head.
- * 
+ *
  * Return: the number of nodes.
  */
 size_t dlistint_len(const dlistint_t *h)
